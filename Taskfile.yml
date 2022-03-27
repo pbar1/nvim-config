@@ -1,0 +1,59 @@
+version: '3'
+
+vars:
+  BIN: '{{osBase .PWD}}'
+  IMAGE: ghcr.io/pbar1/{{.BIN}}
+  VERSION:
+    sh: git describe --tags --always --dirty
+
+tasks:
+  default: task --list
+
+  clean:
+    desc: Remove generated files and container images.
+    cmds:
+    - docker rmi {{.IMAGE}}:{{.VERSION}} {{.IMAGE}}:latest
+
+  # FIXME: This should launch in a build image, not the final image
+  live:
+    desc: Launches an instance of Neovim in Docker for live development.
+    deps:
+    - image:build
+    cmds:
+    - mkdir -p live/data
+    - |
+      docker run --rm --interactive --tty \
+        --volume="${PWD}/live/data:/home/user/.local/share/nvim" \
+        {{.IMAGE}}:{{.VERSION}}
+
+  version:
+    desc: Print version string that will be used
+    cmds:
+    - echo {{.VERSION}}
+
+  image:
+    desc: Alias for "image:build"
+    deps:
+    - image:build
+
+  image:name:
+    desc: Print container image name that will be used
+    cmds:
+    - echo {{.IMAGE}}:{{.VERSION}}
+
+  # TODO: Implement multiplatform container images with --platform
+  image:build:
+    desc: Build container image
+    cmds:
+    - docker build --tag={{.IMAGE}}:{{.VERSION}} .
+    status:
+    - docker inspect --type=image {{.IMAGE}}:{{.VERSION}}
+
+  image:push:
+    desc: Push container image to remote repository
+    deps:
+    - image:build
+    cmds:
+    - docker tag {{.IMAGE}}:{{.VERSION}} {{.IMAGE}}:latest
+    - docker push {{.IMAGE}}:{{.VERSION}}
+    - docker push {{.IMAGE}}:latest
