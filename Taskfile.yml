@@ -27,7 +27,7 @@ tasks:
       docker run --rm --interactive --tty                        \
         --volume="${PWD}:/home/user/.config/nvim"                \
         --volume="${PWD}/live/data:/home/user/.local/share/nvim" \
-        --workdir="/home/.config/nvim/test"                      \
+        --workdir="/home/user/.config/nvim/test"                      \
         {{.IMAGE}}:{{.VERSION}} -- test.json
 
   version:
