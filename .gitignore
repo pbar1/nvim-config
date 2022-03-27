@@ -41,3 +41,4 @@ luac.out
 
 # Project-specific
 live/
+packer_compiled.lua

@@ -12,19 +12,23 @@ tasks:
   clean:
     desc: Remove generated files and container images.
     cmds:
-    - docker rmi {{.IMAGE}}:{{.VERSION}} {{.IMAGE}}:latest
+    - rm -rf live/ packer_compiled.lua || true
+    - docker rmi {{.IMAGE}}:{{.VERSION}} || true
 
   # FIXME: This should launch in a build image, not the final image
   live:
     desc: Launches an instance of Neovim in Docker for live development.
     deps:
+    - clean
     - image:build
     cmds:
     - mkdir -p live/data
     - |
-      docker run --rm --interactive --tty \
+      docker run --rm --interactive --tty                        \
+        --volume="${PWD}:/home/user/.config/nvim"                \
         --volume="${PWD}/live/data:/home/user/.local/share/nvim" \
-        {{.IMAGE}}:{{.VERSION}}
+        --workdir="/home/.config/nvim/test"                      \
+        {{.IMAGE}}:{{.VERSION}} -- test.json
 
   version:
     desc: Print version string that will be used
