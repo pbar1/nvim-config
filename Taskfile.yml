@@ -27,7 +27,7 @@ tasks:
         --volume="${PWD}:/home/user/.config/nvim"                \
         --volume="${PWD}/live/data:/home/user/.local/share/nvim" \
         --workdir="/home/user/.config/nvim/test"                 \
-        {{.IMAGE}}:{{.VERSION}}
+        {{.IMAGE}}:{{.VERSION}} -- test.json
 
   version:
     desc: Print version string that will be used

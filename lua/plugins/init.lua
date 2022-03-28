@@ -24,6 +24,13 @@ use({
 use("p00f/nvim-ts-rainbow")
 
 use({
+	"neovim/nvim-lspconfig",
+	config = function()
+		require("plugins.lspconfig")
+	end,
+})
+
+use({
 	"catppuccin/nvim",
 	as = "catppuccin",
 	config = function()
