@@ -19,7 +19,6 @@ tasks:
   live:
     desc: Launches an instance of Neovim in Docker for live development.
     deps:
-    - clean
     - image:build
     cmds:
     - mkdir -p live/data
@@ -27,8 +26,8 @@ tasks:
       docker run --rm --interactive --tty                        \
         --volume="${PWD}:/home/user/.config/nvim"                \
         --volume="${PWD}/live/data:/home/user/.local/share/nvim" \
-        --workdir="/home/user/.config/nvim/test"                      \
-        {{.IMAGE}}:{{.VERSION}} -- test.json
+        --workdir="/home/user/.config/nvim/test"                 \
+        {{.IMAGE}}:{{.VERSION}}
 
   version:
     desc: Print version string that will be used
@@ -61,3 +60,8 @@ tasks:
     - docker tag {{.IMAGE}}:{{.VERSION}} {{.IMAGE}}:latest
     - docker push {{.IMAGE}}:{{.VERSION}}
     - docker push {{.IMAGE}}:latest
+
+  fmt:
+    desc: Formats code in this project.
+    cmds:
+    - stylua init.lua lua/
