@@ -45,3 +45,10 @@ use({
 		require("plugins.lualine")
 	end,
 })
+
+use({
+	"lukas-reineke/indent-blankline.nvim",
+	config = function ()
+		require("plugins.indent-blankline")
+	end
+})
