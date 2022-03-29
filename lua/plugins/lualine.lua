@@ -5,7 +5,7 @@ lualine.setup({
 		theme = "catppuccin",
 		component_separators = "|",
 		section_separators = "",
-		-- globalstatus = true, -- FIXME: Neovim 0.7+
+		globalstatus = true,
 	},
 
 	sections = {
