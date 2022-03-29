@@ -39,6 +39,13 @@ use({
 })
 
 use({
+	"echasnovski/mini.nvim",
+	config = function()
+		require("plugins.mini")
+	end,
+})
+
+use({
 	"nvim-lualine/lualine.nvim",
 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	config = function()
@@ -48,7 +55,21 @@ use({
 
 use({
 	"lukas-reineke/indent-blankline.nvim",
-	config = function ()
+	config = function()
 		require("plugins.indent-blankline")
-	end
+	end,
 })
+
+use({
+	"lewis6991/gitsigns.nvim",
+	config = function()
+		require("plugins.gitsigns")
+	end,
+})
+
+use("jeffkreeftmeijer/vim-numbertoggle")
+
+-- TODO: Write "use_with_config" wrapper
+-- Parse package owner and repo into words. Take unique words from repo,
+-- excluding "neovim" and "nvim". If this result is empty, do the same for
+-- the owner. Finally, append "plugins." before the result and require it.

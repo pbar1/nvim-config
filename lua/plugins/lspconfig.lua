@@ -1,9 +1,9 @@
 local lspconfig = require("lspconfig")
 
 local servers = {
-	"pyright",
 	"rust_analyzer",
-	"tsserver",
+	"gopls",
+	"pyright",
 }
 
 for _, lsp in pairs(servers) do
