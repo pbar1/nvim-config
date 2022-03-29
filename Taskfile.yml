@@ -21,10 +21,7 @@ tasks:
     - ln -s ${PWD}/init.lua run/config/nvim || true
     - ln -s ${PWD}/lua run/config/nvim || true
     status:
-    - ls run/config/nvim/init.lua
-    - ls run/config/nvim/lua
-    - ls run/data
-    - ls run/cache
+    - ls run/config/nvim/init.lua run/config/nvim/lua run/data run/cache
 
   run:
     desc: Launches an instance of Neovim using this config.
