@@ -5,7 +5,7 @@ vim.o.hlsearch = false
 vim.wo.number = true
 
 --Enable mouse mode
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 --Enable break indent
 vim.o.breakindent = true
@@ -19,4 +19,4 @@ vim.o.smartcase = true
 
 --Decrease update time
 vim.o.updatetime = 250
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = "yes"

@@ -9,5 +9,5 @@ end
 -- Load plugins
 require("plugins")
 
--- Load general Neovim editor configuration
-require("config")
+-- Load Neovim options
+require("options")
