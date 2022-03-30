@@ -73,6 +73,13 @@ use({
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 use({
+	"rcarriga/nvim-notify",
+	config = function()
+		require("plugins.notify")
+	end,
+})
+
+use({
 	"lukas-reineke/indent-blankline.nvim",
 	config = function()
 		require("plugins.indent-blankline")
