@@ -7,8 +7,9 @@ configs.setup({
 		enable = true,
 	},
 
+	-- Disabled for now as it's still pretty buggy in Go
 	indent = {
-		enable = true,
+		enable = false,
 	},
 
 	-- FIXME: Integrate theme colors

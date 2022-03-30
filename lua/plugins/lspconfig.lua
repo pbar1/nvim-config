@@ -1,4 +1,7 @@
 local lspconfig = require("lspconfig")
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = {
 	"rust_analyzer",
@@ -8,15 +11,12 @@ local servers = {
 
 for _, lsp in pairs(servers) do
 	lspconfig[lsp].setup({
-		flags = {
-			-- This will be the default in neovim 0.7+
-			debounce_text_changes = 150,
-		},
+		capabilities = capabilities,
 	})
 end
 
 lspconfig["sumneko_lua"].setup({
-	debounce_text_changes = 150,
+	capabilities = capabilities,
 	settings = {
 		Lua = {
 			runtime = {

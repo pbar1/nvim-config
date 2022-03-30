@@ -31,6 +31,16 @@ use({
 })
 
 use({
+	"hrsh7th/nvim-cmp",
+	config = function()
+		require("plugins.completion")
+	end,
+})
+use("hrsh7th/cmp-nvim-lsp")
+use("L3MON4D3/LuaSnip")
+use("saadparwaiz1/cmp_luasnip")
+
+use({
 	"catppuccin/nvim",
 	as = "catppuccin",
 	config = function()
@@ -52,6 +62,15 @@ use({
 		require("plugins.lualine")
 	end,
 })
+
+use({
+	"nvim-telescope/telescope.nvim",
+	requires = { "nvim-lua/plenary.nvim" },
+	config = function()
+		require("plugins.telescope")
+	end,
+})
+use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
 use({
 	"lukas-reineke/indent-blankline.nvim",
