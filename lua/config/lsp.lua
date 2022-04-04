@@ -1,8 +1,28 @@
 local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local null_ls = require("null-ls")
+local which_key = require("which-key")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+-- TODO: Move into keybinds module if it can be designed cleanly
+local on_attach = function(client, bufnr)
+   which_key.register({
+      ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
+      ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
+      ["K"] = { "<cmd>lua vim.lsp.buf.hover()<CR>" },
+      ["gi"] = { "<cmd>lua vim.lsp.buf.implementation()<CR>" },
+      ["<C-k>"] = { "<cmd>lua vim.lsp.buf.signature_help()<CR>" },
+      ["<leader>wa"] = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>" },
+      ["<leader>wr"] = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>" },
+      ["<leader>wl"] = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>" },
+      ["<leader>D"] = { "<cmd>lua vim.lsp.buf.type_definition()<CR>" },
+      ["<leader>rn"] = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol" },
+      ["<leader>ca"] = { "<cmd>lua vim.lsp.buf.code_action()<CR>" },
+      ["gr"] = { "<cmd>lua vim.lsp.buf.references()<CR>" },
+      ["<leader>f"] = { "<cmd>lua vim.lsp.buf.formatting()<CR>" },
+   }, { buffer = bufnr })
+end
 
 local servers = {
    "rust_analyzer",
@@ -15,11 +35,13 @@ local servers = {
 
 for _, lsp in pairs(servers) do
    lspconfig[lsp].setup({
+      on_attach = on_attach,
       capabilities = capabilities,
    })
 end
 
 lspconfig["sumneko_lua"].setup({
+   on_attach = on_attach,
    capabilities = capabilities,
    settings = {
       Lua = {
