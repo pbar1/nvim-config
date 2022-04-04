@@ -7,6 +7,9 @@ local servers = {
 	"rust_analyzer",
 	"gopls",
 	"pyright",
+	"bashls",
+	"terraformls",
+	"rnix",
 }
 
 for _, lsp in pairs(servers) do
