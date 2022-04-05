@@ -34,6 +34,12 @@ local leader_mappings = {
       ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       ["n"] = { "<cmd>enew<cr>", "New File" },
    },
+   ["P"] = {
+      name = "+Packer",
+      ["c"] = { "<cmd>PackerCompile<cr>", "PackerCompile" },
+      ["y"] = { "<cmd>PackerSync<cr>", "PackerSync" },
+      ["p"] = { "<cmd>PackerProfile<cr>", "PackerProfile" },
+   },
 }
 
 which_key.register(leader_mappings, { prefix = "<leader>" })
