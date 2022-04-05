@@ -1,4 +1,7 @@
+local lightspeed = require("lightspeed")
 local which_key = require("which-key")
+
+lightspeed.setup({})
 
 -- Remap space as leader key
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -21,8 +24,8 @@ local leader_mappings = {
       ["d"] = { "<cmd>lua require('dap').continue()<cr>", "Start or continue" },
       ["i"] = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
       ["o"] = { "<cmd>lua require('dap').step_out()<cr>", "Step out" },
-      ["s"] = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
-      ["a"] = { "<cmd>lua require('dap').step_back()<cr>", "Step back" },
+      ["n"] = { "<cmd>lua require('dap').step_over()<cr>", "Step over" },
+      ["p"] = { "<cmd>lua require('dap').step_back()<cr>", "Step back" },
       ["v"] = { "<cmd>lua require('dap').reverse_continue()<cr>", "Reverse continue" },
       ["r"] = { "<cmd>lua require('dap').restart()<cr>", "Restart debugger" },
       ["x"] = { "<cmd>lua require('dap').terminate()<cr>", "Stop debugger" },

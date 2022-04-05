@@ -8,6 +8,7 @@ catppuccin.setup({
       which_key = true,
       barbar = true,
       ts_rainbow = true,
+      lightspeed = true,
    },
 })
 

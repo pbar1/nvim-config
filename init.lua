@@ -24,6 +24,7 @@ use({ "wbthomason/packer.nvim" })
 use({ "nvim-lua/plenary.nvim" })
 use({ "MunifTanjim/nui.nvim" })
 use({ "rcarriga/nvim-notify" })
+use({ "tpope/vim-repeat" })
 -- Theme ----------------------------------------------------------------------
 use({ "kyazdani42/nvim-web-devicons" })
 use({ "catppuccin/nvim", as = "catppuccin" })
@@ -57,6 +58,7 @@ use({ "editorconfig/editorconfig-vim" })
 use({ "nvim-neo-tree/neo-tree.nvim" })
 -- Keybinds & Actions ---------------------------------------------------------
 use({ "folke/which-key.nvim" })
+use({ "ggandor/lightspeed.nvim" })
 
 -- Load configuration
 require("config.options")
