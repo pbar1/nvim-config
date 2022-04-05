@@ -3,7 +3,9 @@ local indentscope = require("mini.indentscope")
 local comment = require("mini.comment")
 local tabline = require("mini.tabline")
 local autopairs = require("mini.pairs")
+-- local sessions = require("mini.sessions") FIXME: Get sessions working
 local starter = require("mini.starter")
+local cursorword = require("mini.cursorword")
 
 gitsigns.setup()
 
@@ -20,6 +22,10 @@ tabline.setup()
 autopairs.setup({
    modes = { command = true },
 })
+
+-- sessions.setup({
+--    autoread = true,
+-- })
 
 starter.setup({
    items = {
@@ -51,3 +57,5 @@ starter.setup({
       starter.gen_hook.aligning("center", "center"),
    },
 })
+
+cursorword.setup()

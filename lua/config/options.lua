@@ -7,6 +7,9 @@ vim.opt.undodir = undodir
 -- Mouse mode
 vim.opt.mouse = "a"
 
+-- Share clipboard with system
+vim.opt.clipboard:append("unnamedplus")
+
 -- Set highlight on search
 vim.o.hlsearch = false
 
@@ -23,3 +26,14 @@ vim.o.smartcase = true
 -- Decrease update time
 vim.o.updatetime = 250
 vim.wo.signcolumn = "yes"
+
+-- Must be set to stop nvim-notify spam
+vim.opt.termguicolors = true
+
+-- Highlight on yank
+vim.cmd([[
+  augroup YankHighlight
+    autocmd!
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+  augroup end
+]])
