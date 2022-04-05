@@ -1,13 +1,16 @@
 local gitsigns = require("gitsigns")
-local indent_blankline = require("indent_blankline")
-local comment = require("Comment")
+local mini_indentscope = require("mini.indentscope")
+local mini_comment = require("mini.comment")
+local mini_tabline = require("mini.tabline")
 
 gitsigns.setup()
 
-indent_blankline.setup({
-   show_current_context = true,
-   show_current_context_start = true,
-   filetype_exclude = { "alpha" },
+mini_indentscope.setup({
+   draw = {
+      animation = mini_indentscope.gen_animation("none"),
+   },
 })
 
-comment.setup()
+mini_comment.setup()
+
+mini_tabline.setup()

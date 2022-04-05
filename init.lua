@@ -17,46 +17,54 @@ packer.init({
 
 packer.reset()
 
--- Load plugins
 local use = packer.use
 
+-- Core -----------------------------------------------------------------------
 use({ "wbthomason/packer.nvim" })
+use({ "nvim-lua/plenary.nvim" })
+-- Theme ----------------------------------------------------------------------
+use({ "kyazdani42/nvim-web-devicons" })
 use({ "catppuccin/nvim", as = "catppuccin" })
+-- TreeSitter -----------------------------------------------------------------
 use({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" })
 use({ "p00f/nvim-ts-rainbow" })
+-- Language Server Protocol (LSP) ---------------------------------------------
 use({ "neovim/nvim-lspconfig" })
-use({ "jose-elias-alvarez/null-ls.nvim", requires = { "nvim-lua/plenary.nvim" } })
+use({ "jose-elias-alvarez/null-ls.nvim" })
+-- Debug Adapter Protocol (DAP) -----------------------------------------------
+use({ "mfussenegger/nvim-dap" })
+use({ "rcarriga/nvim-dap-ui" })
+use({ "leoluz/nvim-dap-go" })
+-- Completion -----------------------------------------------------------------
 use({ "hrsh7th/nvim-cmp" })
 use({ "hrsh7th/cmp-nvim-lsp" })
 use({ "L3MON4D3/LuaSnip" })
 use({ "saadparwaiz1/cmp_luasnip" })
 use({ "github/copilot.vim" })
-use({ "mfussenegger/nvim-dap" })
-use({ "rcarriga/nvim-dap-ui" })
-use({ "leoluz/nvim-dap-go" })
-use({ "goolord/alpha-nvim" })
-use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true } })
-use({ "romgrk/barbar.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-use({ "folke/which-key.nvim" })
-use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } })
+-- Telescope ------------------------------------------------------------------
+use({ "nvim-telescope/telescope.nvim" })
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+-- UI & Editor ----------------------------------------------------------------
+use({ "echasnovski/mini.nvim" })
+use({ "goolord/alpha-nvim" })
+use({ "nvim-lualine/lualine.nvim" })
 use({ "rcarriga/nvim-notify" })
 use({ "jeffkreeftmeijer/vim-numbertoggle" })
 use({ "lewis6991/gitsigns.nvim" })
-use({ "lukas-reineke/indent-blankline.nvim" })
 use({ "farmergreg/vim-lastplace" })
-use({ "numToStr/Comment.nvim" })
+-- Keybinds & Actions ---------------------------------------------------------
+use({ "folke/which-key.nvim" })
 
 -- Load configuration
 require("config.options")
 require("config.theme")
 require("config.treesitter")
 require("config.lsp")
-require("config.completion")
 require("config.dap")
+require("config.completion")
+require("config.telescope")
+require("config.editor")
 require("config.dashboard")
 require("config.statusline")
-require("config.keybinds")
-require("config.telescope")
 require("config.notify")
-require("config.editor")
+require("config.keybinds")
