@@ -22,6 +22,8 @@ local use = packer.use
 -- Core -----------------------------------------------------------------------
 use({ "wbthomason/packer.nvim" })
 use({ "nvim-lua/plenary.nvim" })
+use({ "MunifTanjim/nui.nvim" })
+use({ "rcarriga/nvim-notify" })
 -- Theme ----------------------------------------------------------------------
 use({ "kyazdani42/nvim-web-devicons" })
 use({ "catppuccin/nvim", as = "catppuccin" })
@@ -35,6 +37,7 @@ use({ "jose-elias-alvarez/null-ls.nvim" })
 use({ "mfussenegger/nvim-dap" })
 use({ "rcarriga/nvim-dap-ui" })
 use({ "leoluz/nvim-dap-go" })
+use({ "mfussenegger/nvim-dap-python" })
 -- Completion -----------------------------------------------------------------
 use({ "hrsh7th/nvim-cmp" })
 use({ "hrsh7th/cmp-nvim-lsp" })
@@ -47,11 +50,11 @@ use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 -- UI & Editor ----------------------------------------------------------------
 use({ "echasnovski/mini.nvim" })
 use({ "nvim-lualine/lualine.nvim" })
-use({ "rcarriga/nvim-notify" })
 use({ "jeffkreeftmeijer/vim-numbertoggle" })
 use({ "lewis6991/gitsigns.nvim" })
 use({ "farmergreg/vim-lastplace" })
 use({ "editorconfig/editorconfig-vim" })
+use({ "nvim-neo-tree/neo-tree.nvim" })
 -- Keybinds & Actions ---------------------------------------------------------
 use({ "folke/which-key.nvim" })
 

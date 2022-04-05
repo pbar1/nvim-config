@@ -6,6 +6,7 @@ local autopairs = require("mini.pairs")
 -- local sessions = require("mini.sessions") FIXME: Get sessions working
 local starter = require("mini.starter")
 local cursorword = require("mini.cursorword")
+local neo_tree = require("neo-tree")
 
 gitsigns.setup()
 
@@ -59,3 +60,5 @@ starter.setup({
 })
 
 cursorword.setup()
+
+neo_tree.setup()
