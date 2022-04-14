@@ -1,3 +1,16 @@
+-------------------------------------------------------------------------------
+-- Inspiration:
+--   https://github.com/NvChad/NvChad/blob/main/init.lua
+--   https://github.com/numToStr/dotfiles/blob/master/neovim/.config/nvim/lua/numToStr/plugins.lua
+--   https://github.com/CosmicNvim/CosmicNvim/blob/main/lua/cosmic/core/pluginsInit.lua
+-------------------------------------------------------------------------------
+
+-- Enable Lua module caching if available for a speed boost
+local ok, impatient = pcall(require, "impatient")
+if ok then
+   impatient.enable_profile()
+end
+
 -- Install Packer if needed
 local packer_path = vim.fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
@@ -22,6 +35,8 @@ local use = packer.use
 -- Core -----------------------------------------------------------------------
 use({ "wbthomason/packer.nvim" })
 use({ "nvim-lua/plenary.nvim" })
+use({ "lewis6991/impatient.nvim" })
+use({ "nathom/filetype.nvim" })
 use({ "MunifTanjim/nui.nvim" })
 use({ "rcarriga/nvim-notify" })
 use({ "tpope/vim-repeat" })
@@ -36,16 +51,16 @@ use({ "p00f/nvim-ts-rainbow" })
 use({ "neovim/nvim-lspconfig" })
 use({ "jose-elias-alvarez/null-ls.nvim" })
 -- Debug Adapter Protocol (DAP) -----------------------------------------------
-use({ "mfussenegger/nvim-dap" })
+use({ "mfussenegger/nvim-dap" }) -- TODO: BufWinEnter
 use({ "rcarriga/nvim-dap-ui" })
 use({ "leoluz/nvim-dap-go" })
 use({ "mfussenegger/nvim-dap-python" })
 -- Completion -----------------------------------------------------------------
-use({ "hrsh7th/nvim-cmp" })
+use({ "hrsh7th/nvim-cmp" }) -- TODO: InsertEnter
 use({ "hrsh7th/cmp-nvim-lsp" })
 use({ "L3MON4D3/LuaSnip" })
 use({ "saadparwaiz1/cmp_luasnip" })
-use({ "github/copilot.vim" })
+use({ "github/copilot.vim", disable = true })
 -- Telescope ------------------------------------------------------------------
 use({ "nvim-telescope/telescope.nvim" })
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
