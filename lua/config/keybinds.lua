@@ -33,7 +33,10 @@ local leader_mappings = {
    },
    ["f"] = {
       name = "+file",
-      ["f"] = { "<cmd>Telescope find_files<cr>", "Find File" },
+      ["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
+      ["g"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
+      ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
+      ["h"] = { "<cmd>Telescope help_tags<cr>", "Help tags" },
       ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       ["n"] = { "<cmd>enew<cr>", "New File" },
    },
