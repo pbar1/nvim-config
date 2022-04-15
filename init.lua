@@ -60,7 +60,7 @@ use({ "hrsh7th/nvim-cmp" }) -- TODO: InsertEnter
 use({ "hrsh7th/cmp-nvim-lsp" })
 use({ "L3MON4D3/LuaSnip" })
 use({ "saadparwaiz1/cmp_luasnip" })
-use({ "github/copilot.vim", disable = true })
+use({ "github/copilot.vim", disable = false })
 -- Telescope ------------------------------------------------------------------
 use({ "nvim-telescope/telescope.nvim" })
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })

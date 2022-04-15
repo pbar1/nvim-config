@@ -5,8 +5,13 @@ local which_key = require("which-key")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
--- TODO: Move into keybinds module if it can be designed cleanly
 local on_attach = function(client, bufnr)
+   -- Disable LSP formatting in favor of null-ls
+   -- WARNING: Make sure not to run this on **null-ls** itself!
+   client.resolved_capabilities.document_formatting = false
+   client.resolved_capabilities.document_range_formatting = false
+
+   -- TODO: Move into keybinds module if it can be designed cleanly
    which_key.register({
       ["gD"] = { "<cmd>lua vim.lsp.buf.declaration()<CR>", "Go to declaration" },
       ["gd"] = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
@@ -24,6 +29,7 @@ local on_attach = function(client, bufnr)
    }, { buffer = bufnr })
 end
 
+-- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 local servers = {
    "rust_analyzer",
    "gopls",
@@ -31,6 +37,7 @@ local servers = {
    "bashls",
    "terraformls",
    "rnix",
+   "csharp_ls",
 }
 
 for _, lsp in pairs(servers) do
@@ -65,6 +72,7 @@ null_ls.setup({
       null_ls.builtins.formatting.goimports, -- FIXME: Disable gopls formatting to avoid prompt
       null_ls.builtins.formatting.black,
       null_ls.builtins.formatting.stylua,
+      null_ls.builtins.formatting.nixpkgs_fmt,
    },
 
    -- Format on save if supported
