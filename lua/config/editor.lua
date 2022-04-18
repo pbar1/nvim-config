@@ -6,6 +6,8 @@ local indentscope = require("mini.indentscope")
 local comment = require("mini.comment")
 local autopairs = require("mini.pairs")
 local cursorword = require("mini.cursorword")
+local toggleterm = require("toggleterm")
+local terminal = require("toggleterm.terminal")
 
 dashboard.section.header.val = {
    "              ⣀⣠⣤⣴⣶⣶⣶⣾⣿⣿⣷⣶⣶⣶⣦⣤⣄⣀              ",
@@ -48,3 +50,5 @@ autopairs.setup({
 })
 
 cursorword.setup()
+
+toggleterm.setup()

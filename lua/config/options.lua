@@ -37,3 +37,7 @@ vim.cmd([[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]])
+
+if vim.g.started_by_firenvim then
+   vim.opt.guifont = "Iosevka_Nerd_Font_Mono:h20"
+end

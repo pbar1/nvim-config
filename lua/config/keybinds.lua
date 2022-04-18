@@ -19,7 +19,7 @@ which_key.setup({
 
 local leader_mappings = {
    ["d"] = {
-      name = "+debug",
+      name = "+debug 🐛",
       ["b"] = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle breakpoint" },
       ["d"] = { "<cmd>lua require('dap').continue()<cr>", "Start or continue" },
       ["i"] = { "<cmd>lua require('dap').step_into()<cr>", "Step into" },
@@ -32,7 +32,7 @@ local leader_mappings = {
       ["u"] = { "<cmd>lua require('dapui').toggle()<cr>", "Toggle debug UI" },
    },
    ["f"] = {
-      name = "+file",
+      name = "+find 🔎",
       ["f"] = { "<cmd>Telescope find_files<cr>", "Find files" },
       ["g"] = { "<cmd>Telescope live_grep<cr>", "Live grep" },
       ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
@@ -40,8 +40,12 @@ local leader_mappings = {
       ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
       ["n"] = { "<cmd>enew<cr>", "New File" },
    },
+   ["t"] = {
+      name = "+terminal 🖥️ ",
+      ["t"] = { "<cmd>ToggleTerm<cr>", "Toggle terminal" },
+   },
    ["P"] = {
-      name = "+Packer",
+      name = "+Packer 📦",
       ["c"] = { "<cmd>PackerCompile<cr>", "PackerCompile" },
       ["y"] = { "<cmd>PackerSync<cr>", "PackerSync" },
       ["p"] = { "<cmd>PackerProfile<cr>", "PackerProfile" },

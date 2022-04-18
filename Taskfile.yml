@@ -17,24 +17,22 @@ tasks:
 
   link:
     cmds:
-    - mkdir -p run/config/nvim run/data run/cache
-    - ln -s ${PWD}/init.lua run/config/nvim || true
-    - ln -s ${PWD}/lua run/config/nvim || true
+    - mkdir -p run/config run/data run/cache
     status:
-    - ls run/config/nvim/init.lua run/config/nvim/lua run/data run/cache
+    - ls run/config run/data run/cache
+
+  build:
+    desc: Builds a wrapped Neovim instance using Nix.
+    cmds:
+    - nix build
 
   run:
     desc: Launches an instance of Neovim using this config.
     deps:
     - link
+    - build
     cmds:
     - XDG_CONFIG_HOME=run/config XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache nvim {{.CLI_ARGS}}
-
-  install:
-    desc: Overwrites ~/.config/nvim with current Neovim config from this repo
-    cmds:
-    - rm -rf ${XDG_CONFIG_HOME}/nvim
-    - cp -r ${PWD} ${XDG_CONFIG_HOME}/nvim
 
   version:
     desc: Print version string that will be used
@@ -72,3 +70,8 @@ tasks:
     desc: Formats code in this project.
     cmds:
     - stylua init.lua lua/
+
+  findpack:
+    desc: Finds init.vim in Nix store.
+    cmds:
+    - ./scripts/findpackdir
