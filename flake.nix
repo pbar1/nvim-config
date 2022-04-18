@@ -116,7 +116,7 @@
         defaultApp = apps.neovim-pbar;
 
         overlay = final: prev: {
-          neovim-pbar = packages.${prev.system}.neovim-pbar;
+          neovim-pbar = packages.neovim-pbar;
         };
       }
     );
