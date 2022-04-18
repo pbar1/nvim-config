@@ -139,7 +139,6 @@
         "vim:nvim-tree.lua": "vim:nvim-tree.lua",
         "vim:nvim-web-devicons": "vim:nvim-web-devicons",
         "vim:plenary.nvim": "vim:plenary.nvim",
-        "vim:telescope-fzf-native.nvim": "vim:telescope-fzf-native.nvim",
         "vim:telescope.nvim": "vim:telescope.nvim",
         "vim:toggleterm.nvim": "vim:toggleterm.nvim",
         "vim:vim-lastplace": "vim:vim-lastplace",
@@ -563,22 +562,6 @@
       "original": {
         "owner": "nvim-lua",
         "repo": "plenary.nvim",
-        "type": "github"
-      }
-    },
-    "vim:telescope-fzf-native.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1645301891,
-        "narHash": "sha256-IdJ7t0nmuA9/HVgzdH3TPDO+FbCmRFZn41qrftsvTlg=",
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzf-native.nvim",
-        "rev": "8ec164b541327202e5e74f99bcc5fe5845720e18",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzf-native.nvim",
         "type": "github"
       }
     },

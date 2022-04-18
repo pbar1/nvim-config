@@ -47,7 +47,7 @@
     "vim:nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
     "vim:nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
-    "vim:telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
+    #"vim:telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
     "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
