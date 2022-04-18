@@ -11,4 +11,9 @@ jobs:
       with:
         extra_nix_config: |
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+    - uses: cachix/cachix-action@v10
+      with:
+        name: pbar1
+        authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
     - run: nix build ".#containerImage"
+    - run: docker load < result
