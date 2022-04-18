@@ -120,8 +120,8 @@
 
         # TODO: This is not seaworthy yet
         containerImage = pkgs.dockerTools.buildLayeredImage {
-          name = "neovim-pbar";
-          tag = "latest"; # TODO: Use a versioned tag
+          name = "ghcr.io/pbar1/nvim-config";
+          tag = "latest";
           contents = [ pkgs.neovim-pbar ];
           config = {
             Cmd = "${pkgs.neovim-pbar}/bin/nvim";

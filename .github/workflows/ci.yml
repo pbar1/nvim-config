@@ -1,19 +1,39 @@
-name: CI
+name: ci
+
 on:
-  pull_request:
   push:
+    branches:
+    - master
+
 jobs:
-  tests:
+  nix:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2.4.0
-    - uses: cachix/install-nix-action@v17
+
+    - name: Setup Nix
+      uses: cachix/install-nix-action@v17
       with:
         extra_nix_config: |
           access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-    - uses: cachix/cachix-action@v10
+
+    - name: Setup Cachix
+      uses: cachix/cachix-action@v10
       with:
         name: pbar1
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
-    - run: nix build ".#containerImage"
-    - run: docker load < result
+
+    - name: Login to GitHub GitHub Packages
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    # TODO: Call via Taskfile
+    - name: Build container image
+      run: nix build ".#containerImage"
+
+    # TODO: Call via Taskfile
+    - name: Push container image
+      run: docker push ghcr.io/pbar1/nvim-config:latest
