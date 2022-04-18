@@ -13,6 +13,8 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
 
+    flake-compat = { url = github:edolstra/flake-compat; flake = false; };
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     neovim-nightly-overlay = {
@@ -107,8 +109,6 @@
               '';
             };
           };
-
-          # TODO: Overlay all the Vim plugins onto pkgs.vimPlugins
         };
     } //
     flake-utils.lib.eachDefaultSystem (system:
@@ -117,9 +117,19 @@
           inherit system;
           overlays = [ self.overlay ];
         };
+
+        # TODO: This is not seaworthy yet
+        containerImage = pkgs.dockerTools.buildLayeredImage {
+          name = "neovim-pbar";
+          tag = "latest"; # TODO: Use a versioned tag
+          contents = [ pkgs.neovim-pbar ];
+          config = {
+            Cmd = "${pkgs.neovim-pbar}/bin/nvim";
+          };
+        };
       in
       rec {
-        packages = with pkgs; { inherit neovim-pbar; };
+        packages = with pkgs; { inherit neovim-pbar; inherit containerImage; };
 
         defaultPackage = packages.neovim-pbar;
 
