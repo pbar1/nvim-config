@@ -1,9 +1,12 @@
-# Neovim Config :moon:
+# Neovim Config :waning_crescent_moon:
 
-Configuration for Neovim
+Neovim configuration by @pbar1.
 
-### Requirements
-- Neovim >= 0.7
+### Usage
+
+```sh
+nix run github:pbar1/nvim-config#.
+```
 
 ### Questions & Ideas
 - Does LSP rename work across files? If not, how can that be done?
