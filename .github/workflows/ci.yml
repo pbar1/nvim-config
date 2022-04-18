@@ -22,6 +22,7 @@ jobs:
       with:
         name: pbar1
         authToken: '${{ secrets.CACHIX_AUTH_TOKEN }}'
+        extraPullNames: nix-community
 
     - name: Login to GitHub GitHub Packages
       uses: docker/login-action@v1
