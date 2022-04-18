@@ -122,7 +122,10 @@
         containerImage = pkgs.dockerTools.buildLayeredImage {
           name = "ghcr.io/pbar1/nvim-config";
           tag = "latest";
-          contents = [ pkgs.neovim-pbar ];
+          contents = [
+            pkgs.neovim-pbar
+            pkgs.bashInteractive
+          ];
           config = {
             Cmd = "${pkgs.neovim-pbar}/bin/nvim";
           };
