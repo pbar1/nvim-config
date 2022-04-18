@@ -34,6 +34,9 @@ jobs:
     - name: Build container image
       run: nix build ".#containerImage"
 
+    - name: Load built container image
+      run: docker load < result
+
     # TODO: Call via Taskfile
     - name: Push container image
       run: docker push ghcr.io/pbar1/nvim-config:latest
