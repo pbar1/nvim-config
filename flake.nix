@@ -59,65 +59,73 @@
   };
 
   outputs = { self, flake-utils, nixpkgs, neovim-nightly-overlay, ... }@inputs:
+    {
+      overlay = final: prev:
+        let
+          pkgs = import nixpkgs {
+            system = prev.system;
+            overlays = [ neovim-nightly-overlay.overlay ];
+          };
+
+          # Build Vim plugin flake inputs into a list of Nix packages
+          vimPackages = with pkgs.lib; with strings; mapAttrsToList
+            (n: v: pkgs.vimUtils.buildVimPluginFrom2Nix {
+              name = removePrefix "vim:" n;
+              src = v.outPath;
+              namePrefix = "";
+            })
+            (filterAttrs (n: v: hasPrefix "vim:" n) inputs);
+
+          # TODO: Only copy *.lua files
+          # Make a derivation containing only Neovim Lua config
+          neovim-pbar-luaconfig = pkgs.stdenv.mkDerivation rec {
+            name = "neovim-pbar-luaconfig";
+            src = ./.;
+            phases = "installPhase";
+            installPhase = ''
+              cp -r ${src} $out
+            '';
+          };
+        in
+        rec {
+          # Wrap Neovim with custom plugins and config
+          neovim-pbar = pkgs.neovim.override {
+            viAlias = true;
+            vimAlias = true;
+            withNodeJs = false;
+
+            configure = {
+              packages.pbar = with pkgs.vimPlugins; {
+                start = [
+                  (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+                ] ++ vimPackages;
+              };
+
+              customRC = ''
+                set runtimepath^=${neovim-pbar-luaconfig}
+                luafile ${neovim-pbar-luaconfig}/init.lua
+              '';
+            };
+          };
+
+          # TODO: Overlay all the Vim plugins onto pkgs.vimPlugins
+        };
+    } //
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = import nixpkgs {
           inherit system;
-          overlays = [ neovim-nightly-overlay.overlay ];
-        };
-
-        # Build Vim plugin flake inputs into a list of Nix packages
-        vimPackages = with pkgs.lib; with strings; mapAttrsToList
-          (n: v: pkgs.vimUtils.buildVimPluginFrom2Nix {
-            name = removePrefix "vim:" n;
-            src = v.outPath;
-            namePrefix = "";
-          })
-          (filterAttrs (n: v: hasPrefix "vim:" n) inputs);
-
-        # TODO: Only copy *.lua files
-        # Make a derivation containing only Neovim Lua config
-        neovim-pbar-luaconfig = pkgs.stdenv.mkDerivation rec {
-          name = "neovim-pbar-luaconfig";
-          src = ./.;
-          phases = "installPhase";
-          installPhase = ''
-            cp -r ${src} $out
-          '';
-        };
-
-        # Wrap Neovim with custom plugins and config
-        neovim-pbar = pkgs.neovim.override {
-          viAlias = true;
-          vimAlias = true;
-          withNodeJs = false;
-
-          configure = {
-            packages.pbar = with pkgs.vimPlugins; {
-              start = [
-                (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
-              ] ++ vimPackages;
-            };
-
-            customRC = ''
-              set runtimepath^=${neovim-pbar-luaconfig}
-              luafile ${neovim-pbar-luaconfig}/init.lua
-            '';
-          };
+          overlays = [ self.overlay ];
         };
       in
       rec {
-        packages = { inherit neovim-pbar; };
+        packages = with pkgs; { inherit neovim-pbar; };
 
         defaultPackage = packages.neovim-pbar;
 
         apps.neovim-pbar = flake-utils.lib.mkApp { drv = packages.neovim-pbar; };
 
         defaultApp = apps.neovim-pbar;
-
-        overlay = final: prev: {
-          neovim-pbar = packages.neovim-pbar;
-        };
       }
     );
 }
