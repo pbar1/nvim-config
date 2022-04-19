@@ -144,6 +144,7 @@
         "vim:gitsigns.nvim": "vim:gitsigns.nvim",
         "vim:impatient.nvim": "vim:impatient.nvim",
         "vim:lightspeed.nvim": "vim:lightspeed.nvim",
+        "vim:lsp_signature.nvim": "vim:lsp_signature.nvim",
         "vim:lualine.nvim": "vim:lualine.nvim",
         "vim:mini.nvim": "vim:mini.nvim",
         "vim:nui.nvim": "vim:nui.nvim",
@@ -390,6 +391,22 @@
       "original": {
         "owner": "ggandor",
         "repo": "lightspeed.nvim",
+        "type": "github"
+      }
+    },
+    "vim:lsp_signature.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650109065,
+        "narHash": "sha256-gO20hQ6DELDyoaLxQDsBtTMBkq6p/iB40z7PERZqvwM=",
+        "owner": "ray-x",
+        "repo": "lsp_signature.nvim",
+        "rev": "a351509512687293fd659ba4ee7e34412c3a8f70",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ray-x",
+        "repo": "lsp_signature.nvim",
         "type": "github"
       }
     },

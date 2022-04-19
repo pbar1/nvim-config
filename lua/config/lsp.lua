@@ -2,8 +2,11 @@ local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local null_ls = require("null-ls")
 local which_key = require("which-key")
+local lsp_signature = require("lsp_signature")
 
 local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+lsp_signature.setup({})
 
 local on_attach = function(client, bufnr)
    -- Disable LSP formatting in favor of null-ls

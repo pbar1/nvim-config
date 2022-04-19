@@ -13,7 +13,6 @@ tasks:
     desc: Remove generated files and container images.
     cmds:
     - rm -rf run/ plugin/ || true
-    - docker rmi {{.IMAGE}}:{{.VERSION}} || true
 
   link:
     cmds:
@@ -32,7 +31,7 @@ tasks:
     - link
     - build
     cmds:
-    - XDG_CONFIG_HOME=run/config XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache nvim {{.CLI_ARGS}}
+    - XDG_CONFIG_HOME=run/config XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache ./result/bin/nvim {{.CLI_ARGS}}
 
   version:
     desc: Print version string that will be used

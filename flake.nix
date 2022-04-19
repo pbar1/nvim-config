@@ -27,6 +27,7 @@
     "vim:gitsigns.nvim" = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
     "vim:impatient.nvim" = { url = "github:lewis6991/impatient.nvim"; flake = false; };
     "vim:lightspeed.nvim" = { url = "github:ggandor/lightspeed.nvim"; flake = false; };
+    "vim:lsp_signature.nvim" = { url = "github:ray-x/lsp_signature.nvim"; flake = false; };
     "vim:lualine.nvim" = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
     "vim:mini.nvim" = { url = "github:echasnovski/mini.nvim"; flake = false; };
     "vim:nui.nvim" = { url = "github:MunifTanjim/nui.nvim"; flake = false; };
