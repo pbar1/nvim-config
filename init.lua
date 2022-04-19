@@ -17,5 +17,5 @@ require("config.editor")
 require("config.statusline")
 require("config.keybinds")
 
--- FIXME: Maybe make a "languages" or "other" file for this
+-- FIXME: Organize language support into self-contained modules
 require("rust-tools").setup({})
