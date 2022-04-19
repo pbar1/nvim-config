@@ -130,6 +130,7 @@
         "flake-utils": "flake-utils",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs",
+        "telescope-fzf-native.nvim": "telescope-fzf-native.nvim",
         "vim:LuaSnip": "vim:LuaSnip",
         "vim:alpha-nvim": "vim:alpha-nvim",
         "vim:barbar.nvim": "vim:barbar.nvim",
@@ -158,7 +159,6 @@
         "vim:nvim-web-devicons": "vim:nvim-web-devicons",
         "vim:plenary.nvim": "vim:plenary.nvim",
         "vim:rust-tools.nvim": "vim:rust-tools.nvim",
-        "vim:telescope-fzf-native.nvim": "vim:telescope-fzf-native.nvim",
         "vim:telescope.nvim": "vim:telescope.nvim",
         "vim:toggleterm.nvim": "vim:toggleterm.nvim",
         "vim:vim-lastplace": "vim:vim-lastplace",
@@ -167,6 +167,22 @@
         "vim:vim-startuptime": "vim:vim-startuptime",
         "vim:vim-surround": "vim:vim-surround",
         "vim:which-key.nvim": "vim:which-key.nvim"
+      }
+    },
+    "telescope-fzf-native.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1645301891,
+        "narHash": "sha256-IdJ7t0nmuA9/HVgzdH3TPDO+FbCmRFZn41qrftsvTlg=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-fzf-native.nvim",
+        "rev": "8ec164b541327202e5e74f99bcc5fe5845720e18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-fzf-native.nvim",
+        "type": "github"
       }
     },
     "vim:LuaSnip": {
@@ -614,22 +630,6 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
-        "type": "github"
-      }
-    },
-    "vim:telescope-fzf-native.nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1645301891,
-        "narHash": "sha256-IdJ7t0nmuA9/HVgzdH3TPDO+FbCmRFZn41qrftsvTlg=",
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzf-native.nvim",
-        "rev": "8ec164b541327202e5e74f99bcc5fe5845720e18",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nvim-telescope",
-        "repo": "telescope-fzf-native.nvim",
         "type": "github"
       }
     },
