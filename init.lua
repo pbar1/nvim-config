@@ -1,7 +1,7 @@
 -- Enable Lua module caching if available for a speed boost
 local ok, impatient = pcall(require, "impatient")
 if ok then
-	impatient.enable_profile()
+   impatient.enable_profile()
 end
 
 -- Load configuration
@@ -16,3 +16,6 @@ require("config.telescope")
 require("config.editor")
 require("config.statusline")
 require("config.keybinds")
+
+-- FIXME: Maybe make a "languages" or "other" file for this
+require("rust-tools").setup({})

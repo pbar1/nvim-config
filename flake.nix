@@ -13,7 +13,7 @@
   inputs = {
     flake-utils.url = "github:numtide/flake-utils";
 
-    flake-compat = { url = github:edolstra/flake-compat; flake = false; };
+    flake-compat = { url = "github:edolstra/flake-compat"; flake = false; };
 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
@@ -28,6 +28,7 @@
     "vim:barbar.nvim" = { url = "github:romgrk/barbar.nvim"; flake = false; };
     "vim:catppuccin" = { url = "github:catppuccin/nvim"; flake = false; };
     "vim:cmp-nvim-lsp" = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
+    "vim:cmp-path" = { url = "github:hrsh7th/cmp-path"; flake = false; };
     "vim:cmp_luasnip" = { url = "github:saadparwaiz1/cmp_luasnip"; flake = false; };
     "vim:copilot.vim" = { url = "github:github/copilot.vim"; flake = false; };
     "vim:editorconfig-vim" = { url = "github:editorconfig/editorconfig-vim"; flake = false; };
@@ -49,7 +50,7 @@
     "vim:nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
     "vim:nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
-    #"vim:telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
+    "vim:telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
     "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
@@ -58,6 +59,7 @@
     "vim:vim-startuptime" = { url = "github:dstein64/vim-startuptime"; flake = false; };
     "vim:vim-surround" = { url = "github:tpope/vim-surround"; flake = false; };
     "vim:which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
+    "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
   };
 
   outputs = { self, flake-utils, nixpkgs, neovim-nightly-overlay, ... }@inputs:
@@ -65,7 +67,7 @@
       overlay = final: prev:
         let
           pkgs = import nixpkgs {
-            system = prev.system;
+            inherit (prev) system;
             overlays = [ neovim-nightly-overlay.overlay ];
           };
 
