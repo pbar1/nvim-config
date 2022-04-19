@@ -1,12 +1,3 @@
-# Sources:
-#   https://github.com/GTrunSec/Coding-Dev-Env-With-NixFlake/blob/main/rust/flake.nix
-#   https://github.com/nix-community/neovim-nightly-overlay/issues/99
-#   https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md
-
-# Todos:
-# - Build container image using `pkgs.dockerTools`
-# - Run `make` and capture output for `telescope-fzf-native` plugin
-
 {
   description = "Neovim configuration by @pbar1";
 
@@ -50,7 +41,6 @@
     "vim:nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
     "vim:nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
-    "vim:telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
     "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
@@ -60,6 +50,9 @@
     "vim:vim-surround" = { url = "github:tpope/vim-surround"; flake = false; };
     "vim:which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
     "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
+
+    # TODO: Build this one with the extra `make` step and copying of the `.so` output
+    "telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
   };
 
   outputs = { self, flake-utils, nixpkgs, neovim-nightly-overlay, ... }@inputs:
@@ -80,7 +73,7 @@
             })
             (filterAttrs (n: v: hasPrefix "vim:" n) inputs);
 
-          # TODO: Only copy *.lua files
+          # TODO: Only copy *.lua files, maybe with `nix-filter`
           # Make a derivation containing only Neovim Lua config
           neovim-pbar-luaconfig = pkgs.stdenv.mkDerivation rec {
             name = "neovim-pbar-luaconfig";
@@ -120,7 +113,6 @@
           overlays = [ self.overlay ];
         };
 
-        # TODO: This is not seaworthy yet
         containerImage = pkgs.dockerTools.buildLayeredImage {
           name = "ghcr.io/pbar1/nvim-config";
           tag = "latest";

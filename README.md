@@ -24,3 +24,13 @@ docker run                 \
 
 ### Questions & Ideas
 - Does LSP rename work across files? If not, how can that be done?
+
+## Links
+
+- [LunarVim](https://github.com/LunarVim/LunarVim): I hear it's got an elegant
+  config structure
+- [GitHub issue](https://github.com/nix-community/neovim-nightly-overlay/issues/99)
+  showing how to overide `pkgs.neovim`
+- [Nixpkgs docs on Vim utils](https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md)
+- [A very helpful Nix flake example](https://github.com/GTrunSec/Coding-Dev-Env-With-NixFlake/blob/main/rust/flake.nix)
+
