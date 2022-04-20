@@ -135,6 +135,7 @@
         "vim:alpha-nvim": "vim:alpha-nvim",
         "vim:barbar.nvim": "vim:barbar.nvim",
         "vim:catppuccin": "vim:catppuccin",
+        "vim:cmp-emoji": "vim:cmp-emoji",
         "vim:cmp-nvim-lsp": "vim:cmp-nvim-lsp",
         "vim:cmp-path": "vim:cmp-path",
         "vim:cmp_luasnip": "vim:cmp_luasnip",
@@ -145,6 +146,7 @@
         "vim:impatient.nvim": "vim:impatient.nvim",
         "vim:lightspeed.nvim": "vim:lightspeed.nvim",
         "vim:lsp_signature.nvim": "vim:lsp_signature.nvim",
+        "vim:lspkind.nvim": "vim:lspkind.nvim",
         "vim:lualine.nvim": "vim:lualine.nvim",
         "vim:mini.nvim": "vim:mini.nvim",
         "vim:nui.nvim": "vim:nui.nvim",
@@ -247,6 +249,22 @@
       "original": {
         "owner": "catppuccin",
         "repo": "nvim",
+        "type": "github"
+      }
+    },
+    "vim:cmp-emoji": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1632834658,
+        "narHash": "sha256-zc5GNkwdVHaeEoCer9tz40F2Xc8qTzPw6NbgkMjjWQI=",
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
+        "rev": "19075c36d5820253d32e2478b6aaf3734aeaafa0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hrsh7th",
+        "repo": "cmp-emoji",
         "type": "github"
       }
     },
@@ -407,6 +425,22 @@
       "original": {
         "owner": "ray-x",
         "repo": "lsp_signature.nvim",
+        "type": "github"
+      }
+    },
+    "vim:lspkind.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1650298271,
+        "narHash": "sha256-0103K5lnzWCyuT/qwiBUo5PJ7lUX7fo+zNeEnQClI7A=",
+        "owner": "onsails",
+        "repo": "lspkind.nvim",
+        "rev": "57e5b5dfbe991151b07d272a06e365a77cc3d0e7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "onsails",
+        "repo": "lspkind.nvim",
         "type": "github"
       }
     },

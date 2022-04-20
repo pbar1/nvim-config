@@ -13,6 +13,7 @@ tasks:
     desc: Remove generated files and container images.
     cmds:
     - rm -rf run/ plugin/ || true
+    - sudo rm -rf result && rm result
 
   link:
     cmds:

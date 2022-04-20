@@ -18,6 +18,7 @@
     "vim:alpha-nvim" = { url = "github:goolord/alpha-nvim"; flake = false; };
     "vim:barbar.nvim" = { url = "github:romgrk/barbar.nvim"; flake = false; };
     "vim:catppuccin" = { url = "github:catppuccin/nvim"; flake = false; };
+    "vim:cmp-emoji" = { url = "github:hrsh7th/cmp-emoji"; flake = false; };
     "vim:cmp-nvim-lsp" = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
     "vim:cmp-path" = { url = "github:hrsh7th/cmp-path"; flake = false; };
     "vim:cmp_luasnip" = { url = "github:saadparwaiz1/cmp_luasnip"; flake = false; };
@@ -28,6 +29,7 @@
     "vim:impatient.nvim" = { url = "github:lewis6991/impatient.nvim"; flake = false; };
     "vim:lightspeed.nvim" = { url = "github:ggandor/lightspeed.nvim"; flake = false; };
     "vim:lsp_signature.nvim" = { url = "github:ray-x/lsp_signature.nvim"; flake = false; };
+    "vim:lspkind.nvim" = { url = "github:onsails/lspkind.nvim"; flake = false; };
     "vim:lualine.nvim" = { url = "github:nvim-lualine/lualine.nvim"; flake = false; };
     "vim:mini.nvim" = { url = "github:echasnovski/mini.nvim"; flake = false; };
     "vim:nui.nvim" = { url = "github:MunifTanjim/nui.nvim"; flake = false; };

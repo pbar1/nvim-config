@@ -1,10 +1,15 @@
-local lspconfig = require("lspconfig")
 local cmp_nvim_lsp = require("cmp_nvim_lsp")
+local lsp_signature = require("lsp_signature")
+local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local which_key = require("which-key")
-local lsp_signature = require("lsp_signature")
 
-local capabilities = cmp_nvim_lsp.update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Add completion to LSP capabilities
+local caps_orig = vim.lsp.protocol.make_client_capabilities()
+local capabilities = cmp_nvim_lsp.update_capabilities(caps_orig)
+
+-- Get current Neovim process PID for use with some LSP servers
+local pid = vim.fn.getpid()
 
 lsp_signature.setup({})
 
