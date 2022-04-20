@@ -162,6 +162,7 @@
         "vim:plenary.nvim": "vim:plenary.nvim",
         "vim:rust-tools.nvim": "vim:rust-tools.nvim",
         "vim:spellsitter.nvim": "vim:spellsitter.nvim",
+        "vim:telescope-ui-select.nvim": "vim:telescope-ui-select.nvim",
         "vim:telescope.nvim": "vim:telescope.nvim",
         "vim:toggleterm.nvim": "vim:toggleterm.nvim",
         "vim:vim-lastplace": "vim:vim-lastplace",
@@ -679,6 +680,22 @@
       "original": {
         "owner": "lewis6991",
         "repo": "spellsitter.nvim",
+        "type": "github"
+      }
+    },
+    "vim:telescope-ui-select.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1647808851,
+        "narHash": "sha256-65/SEDm1HZ4iuEFJMOILUlMLY2Sq7zXW2os9UEkLodM=",
+        "owner": "nvim-telescope",
+        "repo": "telescope-ui-select.nvim",
+        "rev": "186a124a01d7f19e6fcf608d4e1cc61d61ebe939",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-telescope",
+        "repo": "telescope-ui-select.nvim",
         "type": "github"
       }
     },

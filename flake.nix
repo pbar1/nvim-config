@@ -45,6 +45,7 @@
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
     "vim:spellsitter.nvim" = { url = "github:lewis6991/spellsitter.nvim"; flake = false; };
     "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
+    "vim:telescope-ui-select.nvim" = { url = "github:nvim-telescope/telescope-ui-select.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
     "vim:vim-numbertoggle" = { url = "github:jeffkreeftmeijer/vim-numbertoggle"; flake = false; };

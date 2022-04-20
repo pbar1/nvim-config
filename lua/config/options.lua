@@ -46,3 +46,6 @@ vim.opt.guifont = "Iosevka_Nerd_Font_Mono"
 if vim.env.TERM == "wezterm" then
    vim.opt.spell = true
 end
+
+-- Highlight the current line
+vim.opt.cursorline = true
