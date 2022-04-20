@@ -16,6 +16,3 @@ require("config.telescope")
 require("config.editor")
 require("config.statusline")
 require("config.keybinds")
-
--- FIXME: Organize language support into self-contained modules
-require("rust-tools").setup({})

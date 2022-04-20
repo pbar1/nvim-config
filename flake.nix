@@ -22,7 +22,6 @@
     "vim:cmp-nvim-lsp" = { url = "github:hrsh7th/cmp-nvim-lsp"; flake = false; };
     "vim:cmp-path" = { url = "github:hrsh7th/cmp-path"; flake = false; };
     "vim:cmp_luasnip" = { url = "github:saadparwaiz1/cmp_luasnip"; flake = false; };
-    "vim:copilot.vim" = { url = "github:github/copilot.vim"; flake = false; };
     "vim:editorconfig-vim" = { url = "github:editorconfig/editorconfig-vim"; flake = false; };
     "vim:filetype.nvim" = { url = "github:nathom/filetype.nvim"; flake = false; };
     "vim:gitsigns.nvim" = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
@@ -44,13 +43,12 @@
     "vim:nvim-tree.lua" = { url = "github:kyazdani42/nvim-tree.lua"; flake = false; };
     "vim:nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
+    "vim:spellsitter.nvim" = { url = "github:lewis6991/spellsitter.nvim"; flake = false; };
     "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
     "vim:vim-numbertoggle" = { url = "github:jeffkreeftmeijer/vim-numbertoggle"; flake = false; };
-    "vim:vim-repeat" = { url = "github:tpope/vim-repeat"; flake = false; };
     "vim:vim-startuptime" = { url = "github:dstein64/vim-startuptime"; flake = false; };
-    "vim:vim-surround" = { url = "github:tpope/vim-surround"; flake = false; };
     "vim:which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
     "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
 

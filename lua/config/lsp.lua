@@ -2,6 +2,7 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 local lsp_signature = require("lsp_signature")
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
+local rust_tools = require("rust-tools")
 local which_key = require("which-key")
 
 -- Add completion to LSP capabilities
@@ -39,7 +40,6 @@ end
 
 -- https://github.com/neovim/nvim-lspconfig/tree/master/lua/lspconfig/server_configurations
 local servers = {
-   "rust_analyzer",
    "gopls",
    "pyright",
    "bashls",
@@ -71,6 +71,13 @@ lspconfig["sumneko_lua"].setup({
          },
          telemetry = { enable = false },
       },
+   },
+})
+
+rust_tools.setup({
+   server = {
+      on_attach = on_attach,
+      capabilities = capabilities,
    },
 })
 

@@ -38,4 +38,11 @@ vim.cmd([[
   augroup end
 ]])
 
+-- Set font to be used in GUIs (Neovide, etc)
 vim.opt.guifont = "Iosevka_Nerd_Font_Mono"
+
+-- Enable spell checking if using a terminal that supports undercurl (ie, the
+-- "red squiggle" underline)
+if vim.env.TERM == "wezterm" then
+   vim.opt.spell = true
+end

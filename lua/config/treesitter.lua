@@ -1,8 +1,7 @@
 local treesitter_configs = require("nvim-treesitter.configs")
+local spellsitter = require("spellsitter")
 
 treesitter_configs.setup({
-   -- https://github.com/nvim-treesitter/nvim-treesitter#supported-languages
-
    highlight = { enable = true },
 
    -- Disabled for now as it's still pretty buggy in Go
@@ -11,3 +10,5 @@ treesitter_configs.setup({
    -- FIXME: Integrate theme colors
    rainbow = { enable = false },
 })
+
+spellsitter.setup()
