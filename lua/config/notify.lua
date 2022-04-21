@@ -1,6 +1,8 @@
-local notify = require("notify")
-
-vim.opt.termguicolors = true
+local ok, notify = pcall(require, "notify")
+if not ok then
+   vim.notify("nvim-notify not found. Popup notifications is disabled.", "warn")
+   return
+end
 
 notify.setup({
    -- Must be set to stop spam: https://github.com/rcarriga/nvim-notify/issues/69#issuecomment-1072975047

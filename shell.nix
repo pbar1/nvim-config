@@ -1,11 +1,8 @@
 { pkgs ? import <nixpkgs> { } }:
 
-mkShell {
-  buildInputs = with pkgs; [
-    neovim-nightly
+with pkgs; mkShell {
+  buildInputs = [
+    neovim-unwrapped
+    go-task
   ];
-
-  /* shellHook = '' */
-  /*   # ... */
-  /* ''; */
 }

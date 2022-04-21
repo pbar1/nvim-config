@@ -13,13 +13,15 @@ tasks:
     desc: Remove generated files and container images.
     cmds:
     - rm -rf run/ plugin/ || true
-    - sudo rm -rf result && rm result
+    - sudo rm -rf result
 
   link:
     cmds:
-    - mkdir -p run/config run/data run/cache
+    - mkdir -p run/config/nvim run/data run/cache
+    - ln -s ./init.lua run/config/nvim/init.lua
+    - ln -s ./lua      run/config/nvim/lua
     status:
-    - ls run/config run/data run/cache
+    - ls run/config/nvim run/config/nvim run/data run/cache
 
   build:
     desc: Builds a wrapped Neovim instance using Nix.
@@ -27,12 +29,22 @@ tasks:
     - nix build
 
   run:
-    desc: Launches an instance of Neovim using this config.
+    desc: Launches an instance of Neovim using this config via Nix.
     deps:
     - link
+    - gen:packer
     - build
     cmds:
-    - XDG_CONFIG_HOME=run/config XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache ./result/bin/nvim {{.CLI_ARGS}}
+    - XDG_CONFIG_HOME=run/does_not_exist XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache ./result/bin/nvim {{.CLI_ARGS}}
+
+  # FIXME: Find out how to run this against a non-wrapped instance of Neovim
+  run:direct:
+    desc: Launches an instance of Neovim using this config directly.
+    deps:
+    - link
+    - gen:packer
+    cmds:
+    - XDG_CONFIG_HOME=run/config XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache nvim {{.CLI_ARGS}}
 
   version:
     desc: Print version string that will be used

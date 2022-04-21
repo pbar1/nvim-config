@@ -44,14 +44,19 @@
     "vim:nvim-web-devicons" = { url = "github:kyazdani42/nvim-web-devicons"; flake = false; };
     "vim:plenary.nvim" = { url = "github:nvim-lua/plenary.nvim"; flake = false; };
     "vim:spellsitter.nvim" = { url = "github:lewis6991/spellsitter.nvim"; flake = false; };
-    "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:telescope-ui-select.nvim" = { url = "github:nvim-telescope/telescope-ui-select.nvim"; flake = false; };
+    "vim:telescope.nvim" = { url = "github:nvim-telescope/telescope.nvim"; flake = false; };
     "vim:toggleterm.nvim" = { url = "github:akinsho/toggleterm.nvim"; flake = false; };
+    "vim:twilight.nvim" = { url = "github:folke/twilight.nvim"; flake = false; };
+    "vim:vim-helm" = { url = "github:towolf/vim-helm"; flake = false; };
     "vim:vim-lastplace" = { url = "github:farmergreg/vim-lastplace"; flake = false; };
     "vim:vim-numbertoggle" = { url = "github:jeffkreeftmeijer/vim-numbertoggle"; flake = false; };
     "vim:vim-startuptime" = { url = "github:dstein64/vim-startuptime"; flake = false; };
     "vim:which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
-    "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
+
+    # FIXME: Await fix: https://github.com/simrat39/rust-tools.nvim/issues/157
+    # "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
+    "vim:rust-tools.nvim" = { url = "github:Freyskeyd/rust-tools.nvim/dap_fix"; flake = false; };
 
     # TODO: Build this one with the extra `make` step and copying of the `.so` output
     "telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
@@ -75,6 +80,15 @@
             })
             (filterAttrs (n: v: hasPrefix "vim:" n) inputs);
 
+          telescopeFzfNative = pkgs.vimUtils.buildVimPluginFrom2Nix {
+            name = "telescope-fzf-native.nvim";
+            src = inputs."telescope-fzf-native.nvim".outPath;
+            namePrefix = "";
+            buildPhase = ''
+              make
+            '';
+          };
+
           # TODO: Only copy *.lua files, maybe with `nix-filter`
           # Make a derivation containing only Neovim Lua config
           neovim-pbar-luaconfig = pkgs.stdenv.mkDerivation rec {
@@ -97,6 +111,7 @@
               packages.pbar = with pkgs.vimPlugins; {
                 start = [
                   (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+                  telescopeFzfNative
                 ] ++ vimPackages;
               };
 
@@ -137,6 +152,8 @@
         apps.neovim-pbar = flake-utils.lib.mkApp { drv = packages.neovim-pbar; };
 
         defaultApp = apps.neovim-pbar;
+
+        devShell = import ./shell.nix { inherit pkgs; };
       }
     );
 }

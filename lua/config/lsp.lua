@@ -3,6 +3,7 @@ local lsp_signature = require("lsp_signature")
 local lspconfig = require("lspconfig")
 local null_ls = require("null-ls")
 local rust_tools = require("rust-tools")
+local rust_tools_dap = require("rust-tools.dap")
 local which_key = require("which-key")
 
 -- Add completion to LSP capabilities
@@ -74,10 +75,26 @@ lspconfig["sumneko_lua"].setup({
    },
 })
 
+-- FIXME: More robust logic here
+-- Use vscode-lldb for better debugging support
+-- https://github.com/simrat39/rust-tools.nvim#a-better-debugging-experience
+local liblldb_ext = ""
+if vim.loop.os_uname().sysname == "Darwin" then
+   liblldb_ext = ".dylib"
+else
+   liblldb_ext = ".so"
+end
+local codelldb_path = vim.env.VSCODE_LLDB_PATH .. "/adapter/codelldb"
+local liblldb_path = vim.env.VSCODE_LLDB_PATH .. "/lldb/lib/liblldb" .. liblldb_ext
+
 rust_tools.setup({
    server = {
       on_attach = on_attach,
       capabilities = capabilities,
+   },
+
+   dap = {
+      adapter = rust_tools_dap.get_codelldb_adapter(codelldb_path, liblldb_path),
    },
 })
 

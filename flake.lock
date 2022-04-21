@@ -165,6 +165,8 @@
         "vim:telescope-ui-select.nvim": "vim:telescope-ui-select.nvim",
         "vim:telescope.nvim": "vim:telescope.nvim",
         "vim:toggleterm.nvim": "vim:toggleterm.nvim",
+        "vim:twilight.nvim": "vim:twilight.nvim",
+        "vim:vim-helm": "vim:vim-helm",
         "vim:vim-lastplace": "vim:vim-lastplace",
         "vim:vim-numbertoggle": "vim:vim-numbertoggle",
         "vim:vim-startuptime": "vim:vim-startuptime",
@@ -606,11 +608,11 @@
     "vim:nvim-tree.lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1650483643,
-        "narHash": "sha256-/C5lNdq/kCEAYqHMmUVk+gDPUbACwQs61slIs0f2O1M=",
+        "lastModified": 1650499055,
+        "narHash": "sha256-PbpF6C8IDVxanl/6W0K3at3r3A7ozuS+nVm32fSmTrU=",
         "owner": "kyazdani42",
         "repo": "nvim-tree.lua",
-        "rev": "958bac90d28989e79c6c6f7a768fc1ac944ea79b",
+        "rev": "7f2ed4e04337d9729052f23d918f644ada18daa0",
         "type": "github"
       },
       "original": {
@@ -654,15 +656,16 @@
     "vim:rust-tools.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1648260743,
-        "narHash": "sha256-MDzm3Ulkpyt/F4/gUvWfUevWhci/7RD9LZ4yKnM4M2Q=",
-        "owner": "simrat39",
+        "lastModified": 1650010728,
+        "narHash": "sha256-8dzISgTTZRW/oDLlgLBTAZrJHR/7rzJAd8H1VT7kNAI=",
+        "owner": "Freyskeyd",
         "repo": "rust-tools.nvim",
-        "rev": "9f89fe6d9762ef89973bbb698c750dd21b94ec44",
+        "rev": "371f5d4ab819e5fb3669bf374643a348ee2171d6",
         "type": "github"
       },
       "original": {
-        "owner": "simrat39",
+        "owner": "Freyskeyd",
+        "ref": "dap_fix",
         "repo": "rust-tools.nvim",
         "type": "github"
       }
@@ -728,6 +731,38 @@
       "original": {
         "owner": "akinsho",
         "repo": "toggleterm.nvim",
+        "type": "github"
+      }
+    },
+    "vim:twilight.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1628233454,
+        "narHash": "sha256-Ur60/uvBmYV9w0YETPXK3bYK99FtHqCVXWP6UagoBzo=",
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "rev": "8ab43c0fdc246fdd82382d7ef4ec383f8f755ef9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "folke",
+        "repo": "twilight.nvim",
+        "type": "github"
+      }
+    },
+    "vim:vim-helm": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1642664309,
+        "narHash": "sha256-wkREVGLna6hKCpItY0g+6jjl/AT/5BYstCl+Muj6RJ8=",
+        "owner": "towolf",
+        "repo": "vim-helm",
+        "rev": "86a63d007ffee156d759061850cda9d8daa8ea12",
+        "type": "github"
+      },
+      "original": {
+        "owner": "towolf",
+        "repo": "vim-helm",
         "type": "github"
       }
     },
