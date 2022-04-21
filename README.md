@@ -22,6 +22,19 @@ docker run                 \
   ghcr.io/pbar1/nvim-config:latest
 ```
 
+## Notes & TODOs
+
+- (debug): Make debug UI not exit on completion. Would also be nice to have a
+  Telescope keybind to expand views (local vars, etc)
+- (lang): Helm and Terraform syntax highlighting could use some work
+- (general): If launched in a directory, reopen the last session
+- (general): `z`-like directory changing
+- (editor): Twilight.nvim colors are broken
+- (completion): nvim-cmp first run sometimes shows `Workspace loading` -
+  investigate if this is due to large repos
+- (lang): C# LSP, completion, and (maybe) DAP
+- (lang) Go plugin like rust-tools
+
 ## Links
 
 - [LunarVim](https://github.com/LunarVim/LunarVim): I hear it's got an elegant
@@ -30,6 +43,7 @@ docker run                 \
   showing how to overide `pkgs.neovim`
 - [Nixpkgs docs on Vim utils](https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md)
 - [A very helpful Nix flake example](https://github.com/GTrunSec/Coding-Dev-Env-With-NixFlake/blob/main/rust/flake.nix)
+- [Helm support](https://www.reddit.com/r/neovim/comments/sqr6r5/comment/hwndgfe/?utm_source=share&utm_medium=web2x&context=3)
 
 <!-- References -->
 
