@@ -54,11 +54,11 @@
     "vim:vim-startuptime" = { url = "github:dstein64/vim-startuptime"; flake = false; };
     "vim:which-key.nvim" = { url = "github:folke/which-key.nvim"; flake = false; };
 
-    # FIXME: Await fix: https://github.com/simrat39/rust-tools.nvim/issues/157
+    # TODO: Await fix: https://github.com/simrat39/rust-tools.nvim/issues/157
     # "vim:rust-tools.nvim" = { url = "github:simrat39/rust-tools.nvim"; flake = false; };
     "vim:rust-tools.nvim" = { url = "github:Freyskeyd/rust-tools.nvim/dap_fix"; flake = false; };
 
-    # TODO: Build this one with the extra `make` step and copying of the `.so` output
+    # These require special treatment (ie, compilation), so we can't load them in bulk
     "telescope-fzf-native.nvim" = { url = "github:nvim-telescope/telescope-fzf-native.nvim"; flake = false; };
   };
 
