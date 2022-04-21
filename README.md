@@ -34,6 +34,7 @@ docker run                 \
   investigate if this is due to large repos
 - (lang): C# LSP, completion, and (maybe) DAP
 - (lang) Go plugin like rust-tools
+- (nix): Create a package containing Neovim packages in packpath
 
 ## Links
 
@@ -44,6 +45,7 @@ docker run                 \
 - [Nixpkgs docs on Vim utils](https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md)
 - [A very helpful Nix flake example](https://github.com/GTrunSec/Coding-Dev-Env-With-NixFlake/blob/main/rust/flake.nix)
 - [Helm support](https://www.reddit.com/r/neovim/comments/sqr6r5/comment/hwndgfe/?utm_source=share&utm_medium=web2x&context=3)
+- [C# support](https://rudism.com/coding-csharp-in-neovim/)
 
 <!-- References -->
 

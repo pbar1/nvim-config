@@ -1,6 +1,6 @@
 local ok, notify = pcall(require, "notify")
 if not ok then
-   vim.notify("nvim-notify not found. Popup notifications is disabled.", "warn")
+   vim.notify("nvim-notify not found. Popup notifications are disabled.", "warn")
    return
 end
 

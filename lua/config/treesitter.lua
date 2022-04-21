@@ -14,13 +14,9 @@ treesitter_configs.setup({
    rainbow = { enable = false },
 })
 
--- FIXME: Associate filetypes with syntax in a more generic way
-local ok, treesitter_parsers = pcall(require, "nvim-treesitter.parsers")
-if ok then
-   treesitter_parsers.filetype_to_parsername.tf = "hcl"
-else
-   vim.notify("nvim-treesitter.parsers not found. Unable to associate custom filetypes with syntax.", "warn")
-end
+-- TODO: Associate filetypes with syntax in a more generic way
+local parsers = require("nvim-treesitter.parsers")
+parsers.filetype_to_parsername.tf = "hcl"
 
 local ok, spellsitter = pcall(require, "spellsitter")
 if ok then

@@ -72,11 +72,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1650436522,
-        "narHash": "sha256-/Z1I2F6J8j/1Wis1fsKViZWqkCmmA+gEsyITT0cXTgM=",
+        "lastModified": 1650499578,
+        "narHash": "sha256-iJLetvUtr+NweIt3nbY8zO3NR70cyFBVUHYGViWSosI=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "a391cd517bb4f0d638da3f0aaaf57f98e153447e",
+        "rev": "db851cb105ac9f295a836a39ff73da14a70ae754",
         "type": "github"
       },
       "original": {
@@ -95,11 +95,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1650443062,
-        "narHash": "sha256-K0PAS1YfaEcUD5XACEifwKTnsyE6DyuPkoKiHPto+4U=",
+        "lastModified": 1650529029,
+        "narHash": "sha256-/BZThOlIN+Q/YgK2jf5k7l37XiHTnqD318sQpRu0/kU=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "c744e2783e846836c2c05f9dbdcc464ad980f488",
+        "rev": "edf6d999c74bf9772afd7c027e0d0a73bf033b4a",
         "type": "github"
       },
       "original": {
@@ -161,8 +161,10 @@
         "vim:nvim-web-devicons": "vim:nvim-web-devicons",
         "vim:plenary.nvim": "vim:plenary.nvim",
         "vim:rust-tools.nvim": "vim:rust-tools.nvim",
+        "vim:searchbox.nvim": "vim:searchbox.nvim",
         "vim:spellsitter.nvim": "vim:spellsitter.nvim",
         "vim:telescope-ui-select.nvim": "vim:telescope-ui-select.nvim",
+        "vim:telescope-zoxide": "vim:telescope-zoxide",
         "vim:telescope.nvim": "vim:telescope.nvim",
         "vim:toggleterm.nvim": "vim:toggleterm.nvim",
         "vim:twilight.nvim": "vim:twilight.nvim",
@@ -670,6 +672,22 @@
         "type": "github"
       }
     },
+    "vim:searchbox.nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1644524637,
+        "narHash": "sha256-vxcqh2ExTUsye19c2jXoPMrbuYojzyz9Dq7UIrxhAdM=",
+        "owner": "VonHeikemen",
+        "repo": "searchbox.nvim",
+        "rev": "bbb1c08a36d19517633430079ab0c61293e18b91",
+        "type": "github"
+      },
+      "original": {
+        "owner": "VonHeikemen",
+        "repo": "searchbox.nvim",
+        "type": "github"
+      }
+    },
     "vim:spellsitter.nvim": {
       "flake": false,
       "locked": {
@@ -699,6 +717,22 @@
       "original": {
         "owner": "nvim-telescope",
         "repo": "telescope-ui-select.nvim",
+        "type": "github"
+      }
+    },
+    "vim:telescope-zoxide": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1634807614,
+        "narHash": "sha256-NAv3yXsG2pJV8OHzc7myZ/4tKg37+u/eOBCLDwGApzY=",
+        "owner": "jvgrootveld",
+        "repo": "telescope-zoxide",
+        "rev": "b51b7f4ba0e2a08bc764fb2ee39e0bc68eec79b5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "jvgrootveld",
+        "repo": "telescope-zoxide",
         "type": "github"
       }
     },

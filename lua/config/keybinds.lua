@@ -1,7 +1,8 @@
-local lightspeed = require("lightspeed")
-local which_key = require("which-key")
-
-lightspeed.setup({})
+local which_key_ok, which_key = pcall(require, "which-key")
+if not which_key_ok then
+   vim.notify("which-key not found. Custom keybinds are disabled.", "warn")
+   return
+end
 
 -- Remap space as leader key
 vim.api.nvim_set_keymap("", "<Space>", "<Nop>", { noremap = true, silent = true })
@@ -10,10 +11,11 @@ vim.g.maplocalleader = " "
 
 which_key.setup({
    key_labels = {
-      ["<leader>"] = "LDR",
-      ["<space>"] = "SPC",
-      ["<cr>"] = "RET",
-      ["<tab>"] = "TAB",
+      ["<Leader>"] = "LDR",
+      ["<Space>"] = "SPC",
+      ["<CR>"] = "RET",
+      ["<Tab>"] = "TAB",
+      ["<Esc>"] = "ESC",
    },
 })
 
@@ -38,7 +40,7 @@ local leader_mappings = {
       ["b"] = { "<cmd>Telescope buffers<cr>", "Buffers" },
       ["h"] = { "<cmd>Telescope help_tags<cr>", "Help tags" },
       ["r"] = { "<cmd>Telescope oldfiles<cr>", "Open Recent File" },
-      ["n"] = { "<cmd>enew<cr>", "New File" },
+      ["s"] = { "<cmd>SearchBoxIncSearch<cr>", "Find in file" },
    },
    ["t"] = {
       name = "+terminal 🖥️ ",
@@ -51,5 +53,4 @@ local leader_mappings = {
       ["p"] = { "<cmd>PackerProfile<cr>", "PackerProfile" },
    },
 }
-
 which_key.register(leader_mappings, { prefix = "<leader>" })

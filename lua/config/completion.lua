@@ -1,6 +1,30 @@
-local cmp = require("cmp")
-local lspkind = require("lspkind")
-local luasnip = require("luasnip")
+local cmp_ok, cmp = pcall(require, "cmp")
+if not cmp_ok then
+   vim.notify("nvim-cmp not found. Completion is disabled.", "warn")
+   return
+end
+
+local luasnip_ok, luasnip = pcall(require, "luasnip")
+if not luasnip_ok then
+   vim.notify("luasnip not found. Completion is disabled.", "warn")
+   return
+end
+
+local format = {}
+local lspkind_ok, lspkind = pcall(require, "lspkind")
+if lspkind_ok then
+   format = lspkind.cmp_format({
+      with_text = true,
+      menu = {
+         nvim_lsp = "[LSP]",
+         luasnip = "[SNIP]",
+         path = "[PATH]",
+         emoji = "[EMOJI]",
+      },
+   })
+else
+   vim.notify("lspkind not found. Completion source hints are disabled.", "warn")
+end
 
 cmp.setup({
    snippet = {
@@ -50,14 +74,6 @@ cmp.setup({
    }),
 
    formatting = {
-      format = lspkind.cmp_format({
-         with_text = true,
-         menu = {
-            nvim_lsp = "[LSP]",
-            luasnip = "[SNIP]",
-            path = "[PATH]",
-            emoji = "[EMOJI]",
-         },
-      }),
+      format = format,
    },
 })
