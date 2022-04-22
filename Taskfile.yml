@@ -37,7 +37,7 @@ tasks:
   nix:run:
     desc: Launches an instance of Neovim using this config via Nix.
     deps:
-    - link
+    - nix:link
     - build
     - clean # TODO: It would be nice not to have to clean build every time
     cmds:

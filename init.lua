@@ -7,10 +7,10 @@ else
 end
 
 -- Check if Nix is managing Vim packages. If not, load them with Packer.
-if not vim.env.NVIM_PBAR_PLUGINS then
-   vim.notify("loading packer")
-   require("config.packer")
-end
+-- if not vim.env.NVIM_PBAR_PLUGINS then
+--    vim.notify("loading packer")
+--    require("config.packer")
+-- end
 
 -- Load configuration
 require("config.options")
