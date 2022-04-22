@@ -9,33 +9,39 @@ vars:
 tasks:
   default: task --list
 
+  # TODO: Under the current codebase, the built Vim package Nix derivation does
+  #       not seem to get updated unless a garbage collection happens. Also,
+  #       having Vim runtime dirs (ie, our fake XDG dirs) screws with the
+  #       config. We clear everything, but there's a catch: doing this too many
+  #       times will cause GitHub to throttle us, even with token
+  #       authentication (though so far, only "public access" tokens have been
+  #       tried).
   clean:
     desc: Remove generated files and container images.
     cmds:
     - rm -rf run/ plugin/ || true
     - sudo rm -rf result
-
-  link:
-    cmds:
-    - mkdir -p run/config/nvim run/data run/cache
-    - ln -s ./init.lua run/config/nvim/init.lua
-    - ln -s ./lua      run/config/nvim/lua
-    status:
-    - ls run/config/nvim run/config/nvim run/data run/cache
+    - nix-collect-garbage --delete-old
 
   build:
     desc: Builds a wrapped Neovim instance using Nix.
     cmds:
     - nix build
 
-  # run:
-  #   desc: Launches an instance of Neovim using this config via Nix.
-  #   deps:
-  #   - link
-  #   - gen:packer
-  #   - build
-  #   cmds:
-  #   - XDG_CONFIG_HOME=run/does_not_exist XDG_DATA_HOME=run/data XDG_CACHE_HOME=run/cache ./result/bin/nvim {{.CLI_ARGS}}
+  nix:link:
+    cmds:
+    - mkdir -p run/nix/data run/nix/cache
+    status:
+    - ls run/nix/data run/nix/cache
+
+  nix:run:
+    desc: Launches an instance of Neovim using this config via Nix.
+    deps:
+    - link
+    - build
+    - clean # TODO: It would be nice not to have to clean build every time
+    cmds:
+    - XDG_CONFIG_HOME=run/nix/does_not_exist XDG_DATA_HOME=run/nix/data XDG_CACHE_HOME=run/nix/cache ./result/bin/nvim {{.CLI_ARGS}}
 
   packer:link:
     cmds:
@@ -48,7 +54,7 @@ tasks:
     desc: Launches an instance of Neovim using this config directly.
     deps:
     - packer:link
-    - gen:packer
+    - packer:gen
     cmds:
     - |
       nvim_bin="$(fd '.*-neovim-unwrapped-master$' /nix/store | sort -u | head -n 1)/bin/nvim"
@@ -77,27 +83,22 @@ tasks:
     cmds:
     - echo {{.IMAGE}}:{{.VERSION}}
 
-  # TODO: Implement multiplatform container images with --platform
+  # TODO: Tag the container image during the Nix build, rather than "latest"
+  # FIXME: It currently only builds properly on x86_64-linux
   image:build:
     desc: Build container image
     cmds:
-    - docker build --tag={{.IMAGE}}:{{.VERSION}} .
-    status:
-    - docker inspect --type=image {{.IMAGE}}:{{.VERSION}}
+    - nix build ".#containerImage" .
+    - docker load < result
+    - docker tag ghcr.io/pbar1/nvim-config:latest {{.IMAGE}}:{{.VERSION}}
 
   image:push:
     desc: Push container image to remote repository
     deps:
     - image:build
     cmds:
-    - docker tag {{.IMAGE}}:{{.VERSION}} {{.IMAGE}}:latest
     - docker push {{.IMAGE}}:{{.VERSION}}
     - docker push {{.IMAGE}}:latest
-
-  fmt:
-    desc: Formats code in this project.
-    cmds:
-    - stylua init.lua lua/
 
   findpack:
     silent: true
@@ -110,7 +111,7 @@ tasks:
       pack_dir="$(rg --only-matching --no-line-number --no-filename '/nix/store/.*-vim-pack-dir' "${init_vim}" | sort -u)"
       echo "packdir: ${pack_dir}"
 
-  gen:packer:
+  packer:gen:
     silent: true
     desc: Generates Lua config for loading Vim plugins via Packer.
     cmds:

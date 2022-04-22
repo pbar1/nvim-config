@@ -91,3 +91,10 @@ if lightspeed_ok then
 else
    vim.notify("lightspeed not found. Fast motion is disabled.", "warn")
 end
+
+local colorizer_ok, colorizer = pcall(require, "colorizer")
+if colorizer_ok then
+   colorizer.setup()
+else
+   vim.notify("nvim-colorizer.lua not found. Color code highlighting is disabled.", "warn")
+end

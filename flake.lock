@@ -151,6 +151,7 @@
         "vim:nui.nvim": "vim:nui.nvim",
         "vim:null-ls.nvim": "vim:null-ls.nvim",
         "vim:nvim-cmp": "vim:nvim-cmp",
+        "vim:nvim-colorizer.lua": "vim:nvim-colorizer.lua",
         "vim:nvim-dap": "vim:nvim-dap",
         "vim:nvim-dap-go": "vim:nvim-dap-go",
         "vim:nvim-dap-python": "vim:nvim-dap-python",
@@ -338,11 +339,11 @@
     "vim:filetype.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1645821946,
-        "narHash": "sha256-UjLD3CGlrW43WMiIISFkd59GpsZLRo8WzoS2hD2rX+I=",
+        "lastModified": 1650582927,
+        "narHash": "sha256-M5+ByFdSxjnvABGkJB4K0fADIVLl+hl6WOjqHTXzSRY=",
         "owner": "nathom",
         "repo": "filetype.nvim",
-        "rev": "25b5f7e5314d5e7739be726860253c67f7e513bf",
+        "rev": "5a9837d51da6c7c0767767e1ac224e074587a001",
         "type": "github"
       },
       "original": {
@@ -450,11 +451,11 @@
     "vim:mini.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1650454593,
-        "narHash": "sha256-yPw6AWwixgAt1ILVMOU5KLHVOeLsOKFfHNXiKcOQk1I=",
+        "lastModified": 1650555918,
+        "narHash": "sha256-HW4hgGrMwaLOz+GGxyL6zvdDiMkEwIdloG+YwU72djY=",
         "owner": "echasnovski",
         "repo": "mini.nvim",
-        "rev": "8134370549e73a5a72d24ffc7ea6a881cf4502ad",
+        "rev": "09d70a2cd763c368af749840bcb2a441ea10f971",
         "type": "github"
       },
       "original": {
@@ -482,11 +483,11 @@
     "vim:null-ls.nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1650144148,
-        "narHash": "sha256-gbo5sMd+mT/U1nQYAci2pdYNEOg/qFrpVfv6gVawLtY=",
+        "lastModified": 1650586980,
+        "narHash": "sha256-lTNmbBtd48Ww15lNrZMUr+hCaF/Afkl1BebbpT0Cxwk=",
         "owner": "jose-elias-alvarez",
         "repo": "null-ls.nvim",
-        "rev": "a887bd6c1bb992ccf48e673b40e061c3e816204f",
+        "rev": "4d97ea767542752b558ed3146aee300ee843f045",
         "type": "github"
       },
       "original": {
@@ -498,16 +499,32 @@
     "vim:nvim-cmp": {
       "flake": false,
       "locked": {
-        "lastModified": 1650428497,
-        "narHash": "sha256-U5lDWtslhZuDZBgzSijFmOlNShP+geVJw3FIxKIfxYU=",
+        "lastModified": 1650544180,
+        "narHash": "sha256-XJ/gJUuPLr6tTBXMTFzx3sUByS2Z3ASShm6b6bVRe2Q=",
         "owner": "hrsh7th",
         "repo": "nvim-cmp",
-        "rev": "f51dc68e1bb170fc49c2d7e13eb45e5ec83f5ee9",
+        "rev": "433af3dffce64cbd3f99bdac9734768a6cc41951",
         "type": "github"
       },
       "original": {
         "owner": "hrsh7th",
         "repo": "nvim-cmp",
+        "type": "github"
+      }
+    },
+    "vim:nvim-colorizer.lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1591879145,
+        "narHash": "sha256-6YrnItxExL2C8pNIdLd+hXCjsB2MbZANwWkah6dreD8=",
+        "owner": "norcalli",
+        "repo": "nvim-colorizer.lua",
+        "rev": "36c610a9717cc9ec426a07c8e6bf3b3abcb139d6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "norcalli",
+        "repo": "nvim-colorizer.lua",
         "type": "github"
       }
     },
@@ -610,11 +627,11 @@
     "vim:nvim-tree.lua": {
       "flake": false,
       "locked": {
-        "lastModified": 1650499055,
-        "narHash": "sha256-PbpF6C8IDVxanl/6W0K3at3r3A7ozuS+nVm32fSmTrU=",
+        "lastModified": 1650569502,
+        "narHash": "sha256-p4/iu8xhrG+aZtCVBH0oEplA/51DFQk1Ifzz+5eqgDo=",
         "owner": "kyazdani42",
         "repo": "nvim-tree.lua",
-        "rev": "7f2ed4e04337d9729052f23d918f644ada18daa0",
+        "rev": "ce463a53ae269544697c3dedd3d5beae05937405",
         "type": "github"
       },
       "original": {
@@ -626,11 +643,11 @@
     "vim:nvim-web-devicons": {
       "flake": false,
       "locked": {
-        "lastModified": 1647975972,
-        "narHash": "sha256-mOvTXbJ2uQseNuQfdTrUuFHWRg2ia9yXld+4WiBVxDg=",
+        "lastModified": 1650569672,
+        "narHash": "sha256-NCngHFPSYVJCUzjYC7ctlpPZrD5wljpntTLgSNkOONM=",
         "owner": "kyazdani42",
         "repo": "nvim-web-devicons",
-        "rev": "09e62319974d7d7ec7e53b974724f7942470ef78",
+        "rev": "4febe73506268a02ff15a240abcd7bf3eb9234da",
         "type": "github"
       },
       "original": {

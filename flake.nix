@@ -34,6 +34,7 @@
     "vim:nui.nvim" = { url = "github:MunifTanjim/nui.nvim"; flake = false; };
     "vim:null-ls.nvim" = { url = "github:jose-elias-alvarez/null-ls.nvim"; flake = false; };
     "vim:nvim-cmp" = { url = "github:hrsh7th/nvim-cmp"; flake = false; };
+    "vim:nvim-colorizer.lua" = { url = "github:norcalli/nvim-colorizer.lua"; flake = false; };
     "vim:nvim-dap" = { url = "github:mfussenegger/nvim-dap"; flake = false; };
     "vim:nvim-dap-go" = { url = "github:leoluz/nvim-dap-go"; flake = false; };
     "vim:nvim-dap-python" = { url = "github:mfussenegger/nvim-dap-python"; flake = false; };
