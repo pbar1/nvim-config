@@ -6,7 +6,7 @@ end
 
 lualine.setup({
    options = {
-      theme = "catppuccin",
+      theme = "gruvbox-material",
       component_separators = "|",
       section_separators = "",
       globalstatus = true,

@@ -25,6 +25,7 @@
     "vim:editorconfig-vim" = { url = "github:editorconfig/editorconfig-vim"; flake = false; };
     "vim:filetype.nvim" = { url = "github:nathom/filetype.nvim"; flake = false; };
     "vim:gitsigns.nvim" = { url = "github:lewis6991/gitsigns.nvim"; flake = false; };
+    "vim:gruvbox-material" = { url = "github:sainnhe/gruvbox-material"; flake = false; };
     "vim:impatient.nvim" = { url = "github:lewis6991/impatient.nvim"; flake = false; };
     "vim:lightspeed.nvim" = { url = "github:ggandor/lightspeed.nvim"; flake = false; };
     "vim:lsp_signature.nvim" = { url = "github:ray-x/lsp_signature.nvim"; flake = false; };
